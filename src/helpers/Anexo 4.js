@@ -78,166 +78,6 @@ const Reporte = async () => {
         "",
         "",
       ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
-      [
-        "6C. Recursos, materiales y obras públicas",
-        "6C.12",
-        "Almacenamiento, control y distribucion de bienes muebles",
-        "IEEN/6C/6C.12/001/2008",
-        "001",
-        "Resguardo de inventario de bienes inmuebles del consejo municipal electoral de Ahuacatlán",
-        "Abril/2008",
-        "Jun/2008",
-        "Caja 1 de archivo tamaño carta",
-        "Administrativo",
-        "2",
-        "5",
-        "7",
-        "X",
-        "",
-        "",
-        "",
-        "",
-      ],
     ];
 
     var header = [
@@ -283,45 +123,126 @@ const Reporte = async () => {
       body: rows,
       bodyStyles: { fontSize: 6 },
       tableLineColor: [0, 0, 0],
-      didDrawPage: function (data) {
-        let str = "Página " + doc.internal.getNumberOfPages();
-        if (typeof doc.putTotalPages === "function") {
-          str = str + " de " + totalPagesExp;
-        }
-        doc.setFontSize(11);
-        doc.text(str, 385, 205, null, null, "right");
-      },
     });
 
     doc.setFillColor(239, 107, 107);
     doc.rect(10, doc.lastAutoTable.finalY, 332, 5, "FD");
     doc.setFont("helvetica", "bold");
     doc.setFontSize(8);
-    doc.text(
-      "El presente inventario consta de " +
-        doc.internal.getNumberOfPages() +
-        " hoja(s) y ampara la cantidad de " +
-        rows.length +
-        " expediente(s) del año " +
-        "*Rango de año*",
-      12,
-      doc.lastAutoTable.finalY + 4
-    );
+    console.log("Total de hojas", totalPagesExp);
+
     let inicioFirmas = 0;
     if (doc.lastAutoTable.finalY <= 154) {
       inicioFirmas = 165;
     } else {
       doc.addPage();
       inicioFirmas = 30;
-      let str = "Página " + doc.internal.getNumberOfPages();
-      doc.setFontSize(11);
-      doc.text(str, 385, 205, null, null, "right");
+      doc.setPage(doc.internal.getNumberOfPages() - 1);
     }
-    doc.text("**Aqui inician las firmas**", 20, inicioFirmas);
+    doc.text(
+      "El presente inventario consta de " +
+        doc.internal.getNumberOfPages() +
+        " hoja(s) y ampara la cantidad de " +
+        rows.length +
+        " expediente(s) del año " +
+        "*Rango de año**",
+      12,
+      doc.lastAutoTable.finalY + 4
+    );
+    doc.setPage(doc.internal.getNumberOfPages());
+    //Aqui se ingresan las firmas//
+    doc.setFontSize(11);
+    doc.text("Elaboró", 45, inicioFirmas, null, null, "center");
+    doc.line(20, inicioFirmas + 15, 70, inicioFirmas + 15);
+    doc.text("Validó", 130, inicioFirmas, null, null, "center");
+    doc.line(105, inicioFirmas + 15, 155, inicioFirmas + 15);
+    doc.text("Vo.Bo.", 215, inicioFirmas, null, null, "center");
+    doc.line(190, inicioFirmas + 15, 240, inicioFirmas + 15);
+    doc.text("Supervisa", 290, inicioFirmas, null, null, "center");
+    doc.line(265, inicioFirmas + 15, 315, inicioFirmas + 15);
+    doc.setFontSize(9);
+    doc.setFont("helvetica", "normal");
+    doc.text(
+      "**Variable nombre**",
+      45,
+      inicioFirmas + 20,
+      null,
+      null,
+      "center"
+    );
+    doc.text(
+      "**Variable nombre**",
+      130,
+      inicioFirmas + 20,
+      null,
+      null,
+      "center"
+    );
+    doc.text(
+      "**Variable nombre**",
+      215,
+      inicioFirmas + 20,
+      null,
+      null,
+      "center"
+    );
+    doc.text(
+      "**Variable nombre**",
+      290,
+      inicioFirmas + 20,
+      null,
+      null,
+      "center"
+    );
 
-    if (typeof doc.putTotalPages === "function") {
-      doc.putTotalPages(totalPagesExp);
+    doc.setFont("helvetica", "bold");
+
+    var linesElaboro = doc.splitTextToSize("**Variable Puesto**", 65);
+    var y = inicioFirmas + 24;
+    for (var i = 0; i < linesElaboro.length; i++) {
+      doc.text(45, y, linesElaboro[i], null, "center");
+      y = y + 4;
     }
+
+    var linesValido = doc.splitTextToSize("**Variable Puesto**", 65);
+    var y = inicioFirmas + 24;
+    for (var i = 0; i < linesElaboro.length; i++) {
+      doc.text(130, y, linesElaboro[i], null, "center");
+      y = y + 4;
+    }
+
+    var linesVobo = doc.splitTextToSize("**Variable Puesto**", 65);
+    var y = inicioFirmas + 24;
+    for (var i = 0; i < linesElaboro.length; i++) {
+      doc.text(215, y, linesElaboro[i], null, "center");
+      y = y + 4;
+    }
+
+    var linesSuperviso = doc.splitTextToSize("**Variable Puesto**", 65);
+    var y = inicioFirmas + 24;
+    for (var i = 0; i < linesElaboro.length; i++) {
+      doc.text(290, y, linesElaboro[i], null, "center");
+      y = y + 4;
+    }
+
+    //Codigo numeracion de paginas
+    doc.setFontSize(9);
+    var footer = function () {
+      var pageCount = doc.internal.getNumberOfPages();
+      console.log("Esto es el total de paginas", pageCount);
+      for (var i = 0; i < pageCount; i++) {
+        doc.setPage(i + 1);
+        doc.text(
+          "Página " + (i + 1) + " de " + pageCount,
+          340,
+          205,
+          null,
+          null,
+          "right"
+        );
+      }
+    };
+    footer();
     doc.save("Anexo 4" + ".pdf");
     return {
       success: true,
