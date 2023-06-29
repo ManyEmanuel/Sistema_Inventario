@@ -169,8 +169,24 @@ const Reporte = async () => {
       inicioObservaciones = inicioObservaciones + 4;
     }
     doc.rect(13, y, 190, alturaObservaciones);
+    y = y + alturaObservaciones;
+
+    let linesConfidencial = doc.splitTextToSize(
+      "El suscrito " +
+        "**Nommbre y cargo**" +
+        " en mi carácter de servidor público adscrito al Instituto Estatal Electoral de Nayarit y bajo protesta de decir verdad, declaro conocer que conforme al articulo 63 de la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental son causas de responsabilidad administrativa de los servidores públicos usar, sustraer, destruir, ocultar, inutilizar, divulgar o alterar, total o parcialmente y de manera indebida, información que se encuentre bajo su custodia, a la cual tengan acceso o conocimiento con motivo de su empleo, cargo o comisión, asi como entregar información considerada como reservada o confidencial conforme a lo dispuesto por dicha Ley; por lo que el expediente solicitado únicamente será utilizado para efectos del debido desempeño de las funciones propias del cargo que me fue conferido.",
+      185
+    );
+    let alturaConfidencial = linesConfidencial.length * 5;
+    let inicioConfidencial = y + 4;
+    for (var i = 0; i < linesConfidencial.length; i++) {
+      doc.text(15, inicioConfidencial, linesConfidencial[i], null);
+      inicioConfidencial = inicioConfidencial + 4;
+    }
+    doc.rect(13, y, 190, alturaConfidencial);
+    y = y + alturaConfidencial + 5;
+
     //-------------------------------------------------------------------------------------------//
-    y = y + alturaObservaciones + 5;
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     doc.setFillColor(252, 213, 180);
@@ -265,7 +281,7 @@ const Reporte = async () => {
     doc.setFontSize(9);
     doc.setFont("helvetica", "normal");
     doc.text(
-      "**Nombre responsable de archivo** ",
+      "**Nombre responsable de archivo ** ",
       110,
       y - 1,
       null,
@@ -284,7 +300,7 @@ const Reporte = async () => {
 
     //Encabezados en rojo estaticos
 
-    doc.save("Anexo 7" + ".pdf");
+    doc.save("Anexo 8" + ".pdf");
     return {
       success: true,
       msj: "Recibo generado con éxito",

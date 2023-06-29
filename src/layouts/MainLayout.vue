@@ -237,7 +237,7 @@ import { onBeforeMount } from "vue";
 import { useAuthStore } from "../stores/auth_store";
 import { storeToRefs } from "pinia";
 import { useQuasar } from "quasar";
-import Reporte from "../helpers/Anexo 7";
+import Reporte from "../helpers/Anexo 8";
 
 export default defineComponent({
   name: "MainLayout",
