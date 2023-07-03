@@ -197,7 +197,7 @@
             </q-item-section>
           </q-item>
         </q-list>
-        <q-btn label="Prueba" icon="send" @click="PruebaReporte()"> </q-btn>
+        <!--- <q-btn label="Prueba" icon="send" @click="PruebaReporte()"> </q-btn> -->
       </q-scroll-area>
 
       <q-img
@@ -237,7 +237,7 @@ import { onBeforeMount } from "vue";
 import { useAuthStore } from "../stores/auth_store";
 import { storeToRefs } from "pinia";
 import { useQuasar } from "quasar";
-import Reporte from "../helpers/Anexo 14";
+//import Reporte from "../helpers/Anexo 7";
 
 export default defineComponent({
   name: "MainLayout",
@@ -277,9 +277,9 @@ export default defineComponent({
       await loadMenu();
     });
 
-    const PruebaReporte = () => {
+    /*const PruebaReporte = () => {
       Reporte();
-    };
+    };*/
 
     const show = () => {
       $q.bottomSheet({
@@ -354,7 +354,7 @@ export default defineComponent({
       ConsumiblesList,
       SolicitudesList,
       usuario,
-      PruebaReporte,
+      //PruebaReporte,
       show,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
