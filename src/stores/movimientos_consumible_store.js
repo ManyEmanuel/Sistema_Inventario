@@ -223,6 +223,7 @@ export const useMovimientoConsumibleStore = defineStore(
 
       async createMovimiento(movimiento) {
         try {
+          console.log("Esto es movimiento", movimiento);
           const resp = await api.post("/MovimientosConsumibles", movimiento);
           if (resp.status == 200) {
             const { success, data } = resp.data;
