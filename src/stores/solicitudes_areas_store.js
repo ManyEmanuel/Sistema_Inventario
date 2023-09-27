@@ -110,7 +110,8 @@ export const useSolicitudAreaStore = defineStore("solicitudesAreas", {
             tipo: solicitud.tipo,
             area: solicitud.area,
             empleado_Solicitante: solicitud.empleado_Solicitante,
-            fecha_Solicitud: solicitud.fecha_Solicitud,
+            fecha_Solicitud: solicitud.fecha_Solicitud_Tabla,
+            fecha_Entrega: solicitud.fecha_Entrega_Tabla,
             estatus: solicitud.estatus,
           };
         });

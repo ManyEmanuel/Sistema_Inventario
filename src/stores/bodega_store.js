@@ -68,6 +68,7 @@ export const useBodegaStore = defineStore("bodega", {
     },
     async loadAreasList() {
       try {
+        this.areas = [];
         let resp = await api.get("/Areas/GetLista");
         let { data } = resp.data;
         let listaArea = data.map((area) => {

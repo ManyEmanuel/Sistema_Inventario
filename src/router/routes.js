@@ -65,6 +65,18 @@ const routes = [
         name: "solicitud_areas",
         component: () => import("../modulos/solicitudes_areas/pages/IndexPage"),
       },
+      {
+        path: "/reportes_consumibles",
+        name: "reportes_consumibles",
+        component: () =>
+          import("../modulos/reportes_consumibles/pages/IndexPage"),
+      },
+      {
+        path: "/reportes_consumibles_areas",
+        name: "reportes_consumibles_areas",
+        component: () =>
+          import("../modulos/reportes_consumibles/pages/IndexPageAreas"),
+      },
     ],
   },
 

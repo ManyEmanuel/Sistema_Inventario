@@ -103,7 +103,7 @@ export const useAuthStore = defineStore("auth", {
                   url: sistema.url,
                 };
               });
-              console.log(sistemasArray);
+
               this.sistemas = sistemasArray;
 
               const appsArray = data.map((app) => {
@@ -170,7 +170,6 @@ export const useAuthStore = defineStore("auth", {
                 };
               });
               this.modulos = modulosArray;
-              console.log(modulosArray);
             }
           } else {
             return { success, data };

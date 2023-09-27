@@ -196,6 +196,34 @@
               >
             </q-item-section>
           </q-item>
+          <q-expansion-item
+            v-if="SolicitudesList.some((element) => element == 'SI-GEN-REP')"
+            expand-separator
+            icon="add_box"
+            label="Generación de reportes"
+            class="text-purple-ieen label-title text-bold"
+          >
+            <q-item :to="{ name: 'reportes_consumibles' }">
+              <q-item-section avatar>
+                <q-icon name="print" color="purple-ieen" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label class="text-purple-ieen label-title text-bold"
+                  >Consumibles entregados general</q-item-label
+                >
+              </q-item-section>
+            </q-item>
+            <q-item :to="{ name: 'reportes_consumibles_areas' }">
+              <q-item-section avatar>
+                <q-icon name="print" color="purple-ieen" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label class="text-purple-ieen label-title text-bold"
+                  >Consumibles entregados por área</q-item-label
+                >
+              </q-item-section>
+            </q-item>
+          </q-expansion-item>
         </q-list>
         <!--- <q-btn label="Prueba" icon="send" @click="PruebaReporte()"> </q-btn> -->
       </q-scroll-area>
@@ -289,9 +317,9 @@ export default defineComponent({
       }).onOk((action) => {
         if (action.label == "Cerrar sesión") {
           localStorage.clear();
-          window.location = "http://sistema.ieenayarit.org:9171?return=false";
+          window.location = "http://sistema.ieenayarit.org:9271?return=false";
         } else if (action.label == "Ir a universo") {
-          window.location = "http://sistema.ieenayarit.org:9171?return=true";
+          window.location = "http://sistema.ieenayarit.org:9271?return=true";
         } else {
           window.location =
             action.url +
@@ -342,6 +370,9 @@ export default defineComponent({
             break;
           case "SI-REG-ARE":
             SolicitudesList.value.push("SI-REG-ARE");
+            break;
+          case "SI-GEN-REP":
+            SolicitudesList.value.push("SI-GEN-REP");
             break;
         }
       });

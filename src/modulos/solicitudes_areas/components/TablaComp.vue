@@ -129,6 +129,12 @@
                   <q-tooltip>Surtir solicitud</q-tooltip>
                 </q-btn>-->
               </div>
+              <div v-else-if="col.name === 'fecha_Entrega'">
+                <label v-if="props.row.estatus == 'Entregado'">
+                  {{ col.value }}
+                </label>
+                <label v-else> Aún sin Entregar</label>
+              </div>
               <label v-else>{{ col.value }}</label>
             </q-td>
             <!--<q-td key="empleado_Solicitante" :props="props">
@@ -202,6 +208,13 @@ const columns = [
     align: "center",
     label: "Fecha de la solicitud",
     field: "fecha_Solicitud",
+    sortable: true,
+  },
+  {
+    name: "fecha_Entrega",
+    align: "center",
+    label: "Fecha de Entrega",
+    field: "fecha_Entrega",
     sortable: true,
   },
   {
