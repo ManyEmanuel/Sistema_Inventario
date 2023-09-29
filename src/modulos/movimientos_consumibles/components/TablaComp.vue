@@ -68,7 +68,7 @@
                   <q-tooltip>Generar comprobante</q-tooltip>
                 </q-btn>
               </div>
-              <label>{{ col.value }}</label>
+              <label v-else>{{ col.value }}</label>
             </q-td>
           </q-tr>
         </template>

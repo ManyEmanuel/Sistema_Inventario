@@ -173,9 +173,9 @@ const ReportePorArea = async (areas, inicio, fin, tipo) => {
           doc.setFont("helvetica", "normal");
           doc.setFontSize(10);
           doc.text(
-            "El importe total del área de " +
+            "Monto calculado con el último precio registrado del consumible. Área: " +
               areaSelect.label +
-              ": $" +
+              " - $" +
               importeTotal,
             193,
             finalYTabla + 5,
@@ -190,9 +190,9 @@ const ReportePorArea = async (areas, inicio, fin, tipo) => {
           doc.setFont("helvetica", "normal");
           doc.setFontSize(10);
           doc.text(
-            "El importe total del área de " +
+            "Monto calculado con el último precio registrado del consumible. Área: " +
               areaSelect.label +
-              ": $" +
+              " - $" +
               importeTotal,
             193,
             finalYTabla + 2,

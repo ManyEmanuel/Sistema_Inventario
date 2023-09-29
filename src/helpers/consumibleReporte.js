@@ -113,7 +113,8 @@ const ReportePorConsumible = async (inicio, fin, tipo) => {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     doc.text(
-      "El importe total es de: $" + importeTotal,
+      "Monto calculado con el último precio registrado del consumible. $" +
+        importeTotal,
       193,
       y + 5,
       null,

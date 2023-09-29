@@ -28,7 +28,11 @@
           <q-tr :props="props">
             <q-td v-for="col in props.cols" :key="col.name" :props="props">
               <div v-if="col.name === 'total'">
-                ${{ props.row.precio_Unitario * props.row.totalEntregada }}
+                ${{
+                  (
+                    props.row.precio_Unitario * props.row.totalEntregada
+                  ).toFixed(2)
+                }}
               </div>
               <label v-else-if="col.name === 'precio_Unitario'"
                 >${{ col.value }}</label
